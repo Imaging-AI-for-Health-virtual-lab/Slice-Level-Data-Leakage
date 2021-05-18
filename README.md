@@ -1,194 +1,185 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2513
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\ri0\partightenfactor0
+ This repository contains the libraries and code required to reproduce the study in [1].
 
-\f0\fs24 \cf0 This repository contains the libraries and code required to reproduce the study in [1].\
-\
-Briefly, we illustrated the effect of data leakage caused by inappropriate train/validation split of 3D MR image data. Specifically, we trained three different 2D convolutional neural network (CNN) architectures using correct (subject-level) and incorrect (slice-level) data split on public and private datasets. The difference in the model's performance trained following both incorrect and incorrect data split is demonstrated to emphasize the extent of the over-estimation of the model's performance caused by data leakage.\
-\
-  \
-\
-## Datasets\
-Since we didn't provide MR data to run the code, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).\
-\
-- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)~~(LINK to a file in the github repository, which contains the information for downloading T1w MR images from OASIS dataset)~~\
-\
-- Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/)~~(LINK to a file in the github repository, which contains the information for downloading T1w MR images from ADNI dataset)~~\
-\
-- Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/)~~(LINK to a file in the github repository, which contains the information for downloading T1w MR images from PPMI dataset)~~\
-\
-  \
-\
-## 3D MRI data pre-processing\
-The T1-weighted images required a pre-processing, including a co-registration step with a standard space and a skull-stripping procedure.\
-\
-We show an example of pre-processing, by using [ANTS](http://stnava.github.io/ANTs/) [2] and [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL) [3] scripts on the following T1-weighted images of two AD patients of ADNI dataset (https://adni.loni.usc.edu/):\
-\
-- ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242.nii.gz\
-\
-- ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989.nii.gz\
-\
-  \
-\
-  \
-\
-1. Registration with standard template:\
-\
-```\
-ants.sh 3 $FSLDIR/data/standard/MNI152_T1_1mm.nii.gz ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242.nii.gz\
-\
-ants.sh 3 $FSLDIR/data/standard/MNI152_T1_1mm.nii.gz ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989.nii.gz\
-\
-```\
-\
-  \
-\
-The outputs should be:\
-- ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242deformed.nii.gz\
-\
-- ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989deformed.nii.gz\
-\
-  \
-\
-2. Concatenate the registered images in a unique 4D volume:\
-\
-```\
-fslmerge -t ADNI_example.nii.gz ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242deformed.nii.gz ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989deformed.nii.gz\
-\
-```\
-\
-  \
-\
-3. Mask the 4D volume with the standard space brain mask:\
-\
-```\
-fslmaths ADNI_example.nii.gz -mas $FSLDIR/data/standard/MNI152_T1_1mm_brain_mask.nii.gz ADNI_example_skullstripped.nii.gz\
-```\
-\
-  \
-\
-In the following documentation, \'93ADNI_example_skullstripped.nii.gz\'94 is the input 4D NIfTI volume, containing all subjects concatenated one to each other. The csv label file should be written consistent with this 4D NIfTI volume (in this guide the csv file \'93ADNI_example_labels.csv\'94 has been written consistent with the 4D NIfTI volume \'93ADNI_example_skullstripped.nii.gz\'94).\
-\
-  \
-\
-## Python requirements for CNN model training and validation\
-Python libraries required to run the code _model_training.py_:\
-\
-- Classification_models 0.2.2\
-\
-- Cv2 3.3.0\
-\
-- Keras 2.2.4\
-\
-- Matplotlib 3.0.2\
-\
-- Nibabel 2.3.3\
-\
-- Numpy 1.16.4\
-\
-- Pandas 0.24.2\
-\
-- Python 3.6.8\
-\
-- Skimage 0.15.0\
-\
--  Sklearn 0.21.2\
-\
-- TensorflowGPU 1.13.1\
-\
-  \
-\
-  \
-\
-## Usage\
-Run the script _model_training.py_:\
-\
-```\
-python3 model_training.py -h\
-\
-usage: model_training.py [-h] [--save_path SAVE_PATH] nifti_path labels_path arch_config_path data_CV_config_path\
-\
-  \
-positional arguments:\
-\
-nifti_path:  4D NIfTI volume path\
-labels_path: csv labels file path\
-arch_config_path:  path of the json file containing the CNN architecture configuration\
-data_CV_config_path:  path of the json file containing the data selection and CV setting\
-\
-  \
-optional arguments:\
-\
--h, --help  show this help message and exit\
---save_path SAVE_PATH     location to save the results\
+Briefly, we illustrated the effect of data leakage caused by inappropriate train/validation split of 3D MR image data. Specifically, we trained three different 2D convolutional neural network (CNN) architectures using correct (subject-level) and incorrect (slice-level) data split on public and private datasets. The difference in the model's performance trained following both incorrect and incorrect data split is demonstrated to emphasize the extent of the over-estimation of the model's performance caused by data leakage.
 
-\
-\
-Example:\
-\
-python3 model_training.py ADNI_example_skullstripped.nii.gz ADNI_example_labels.csv arch_pars.json data_CV_pars.json --save_path path_to_save_results\
-```\
-\
-  \
-\
-- arch_config_path: json file containing configuration for CNN architecture. The parameters are:\
-1. "pretrained_model": the choice of network architecture ("vgg1", "vgg2", "resnet18").\
-\
-2. "optimizer": optimizer options ("adam", "SGD").\
-\
-3. "epochs": number of epochs to train the model.\
-\
-4.  "batch_size": batch size during model training.\
-\
-  \
-\
-\
-- data_CV_config_path: json file containing configuration for data selection and CV setting. The parameters include:\
-\
-1. "dataset": string representing the name of the dataset.\
-2.  "data_size": option to use all the data ("all") or a sub-sample of the dataset ("subset").\
-\
-3. "sample_size": integer number to choose number of subjects to use for a sub-sampled dataset. Necessary if "data_size" is set as "subset".\
-\
-4. "Nslices": number of slices to select.\
-\
-5. "slicing_plane": string to choose slicing plane ("axial", "sagittal" or "coronal").\
-\
-6. "enable_hist_plot": boolean variable for plotting the histogram of the selected number of slices.\
-\
-7. "data_resize": boolean variable for resizing 2D images or not.\
-\
-8. "label": string column header of the label's file.\
-\
-9. "cv_method": string to choose between cross validation ("cv") or nested cross validation ("grid_search").\
-\
-10. "Nfolds": number of cross validation folds. Required if "cv_method" is set as "cv".\
-\
-11. "Ninner": integer representing number of inner folds. Required if "cv_method" is set as "grid_search".\
-\
-12. "Nouter": integer representing number of outer folds. Required if "cv_method" is set as "grid_search".\
-\
-13. "cv_split": string to choose data split method ("slice-level" and "subject-level")\
-\
-  \
-\
-  \
-\
-**References**\
-\
-  \
-\
-[1] Deep learning in\uc0\u8239 brain MRI:\u8239 effect of data leakage in cross-validation using 2D convolutional neural networks\u8239 \
-\
-  \
-\
-[2] B. B. Avants et al., 2011. A reproducible evaluation of ANTs similarity metric performance in brain image registration.  _Neuroimage_, Volume 54(3), pp. 2033-2044.\
-\
-  \
-\
-[3] M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. _NeuroImage_, 62:782-90, 2012\
-}
+
+
+## Datasets
+Since we didn't provide MR data to run the code, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).
+
+- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from OASIS dataset)
+
+- Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from ADNI dataset)
+
+- Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from PPMI dataset)
+
+
+
+## 3D MRI data pre-processing
+The T1-weighted images required a pre-processing, including a co-registration step with a standard space and a skull-stripping procedure.
+
+We show an example of pre-processing, by using [ANTS](http://stnava.github.io/ANTs/) [2] and [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL) [3] scripts on the following T1-weighted images of two AD patients of ADNI dataset (https://adni.loni.usc.edu/):
+
+- ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242.nii.gz
+
+- ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989.nii.gz
+
+
+
+
+
+1. Registration with standard template:
+
+```
+ants.sh 3 $FSLDIR/data/standard/MNI152_T1_1mm.nii.gz ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242.nii.gz
+
+ants.sh 3 $FSLDIR/data/standard/MNI152_T1_1mm.nii.gz ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989.nii.gz
+
+```
+
+
+
+The outputs should be:
+- ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242deformed.nii.gz
+
+- ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989deformed.nii.gz
+
+
+
+2. Concatenate the registered images in a unique 4D volume:
+
+```
+fslmerge -t ADNI_example.nii.gz ADNI_002_S_5018_MR_MPRAGE_br_raw_20121112145218294_127_S174291_I346242deformed.nii.gz ADNI_006_S_4153_MR_MPRAGE_br_raw_20111107134001421_166_S128231_I264989deformed.nii.gz
+
+```
+
+
+
+3. Mask the 4D volume with the standard space brain mask:
+
+```
+fslmaths ADNI_example.nii.gz -mas $FSLDIR/data/standard/MNI152_T1_1mm_brain_mask.nii.gz ADNI_example_skullstripped.nii.gz
+```
+
+
+
+In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the input 4D NIfTI volume, containing all subjects concatenated one to each other. The csv label file should be written consistent with this 4D NIfTI volume (in this guide the csv file '93ADNI_example_labels.csv'94 has been written consistent with the 4D NIfTI volume '93ADNI_example_skullstripped.nii.gz'94).
+
+
+
+## Python requirements for CNN model training and validation
+Python libraries required to run the code _model_training.py_:
+
+- Classification_models 0.2.2
+
+- Cv2 3.3.0
+
+- Keras 2.2.4
+
+- Matplotlib 3.0.2
+
+- Nibabel 2.3.3
+
+- Numpy 1.16.4
+
+- Pandas 0.24.2
+
+- Python 3.6.8
+
+- Skimage 0.15.0
+
+-  Sklearn 0.21.2
+
+- TensorflowGPU 1.13.1
+
+
+
+
+
+## Usage
+Run the script _model_training.py_:
+
+```
+python3 model_training.py -h
+
+usage: model_training.py [-h] [--save_path SAVE_PATH] nifti_path labels_path arch_config_path data_CV_config_path
+
+
+positional arguments:
+
+nifti_path:  4D NIfTI volume path
+labels_path: csv labels file path
+arch_config_path:  path of the json file containing the CNN architecture configuration
+data_CV_config_path:  path of the json file containing the data selection and CV setting
+
+
+optional arguments:
+
+-h, --help  show this help message and exit
+--save_path SAVE_PATH     location to save the results
+
+
+
+Example:
+
+python3 model_training.py ADNI_example_skullstripped.nii.gz ADNI_example_labels.csv arch_pars.json data_CV_pars.json --save_path path_to_save_results
+```
+
+
+
+- arch_config_path: json file containing configuration for CNN architecture. The parameters are:
+1. "pretrained_model": the choice of network architecture ("vgg1", "vgg2", "resnet18").
+
+2. "optimizer": optimizer options ("adam", "SGD").
+
+3. "epochs": number of epochs to train the model.
+
+4.  "batch_size": batch size during model training.
+
+
+
+
+- data_CV_config_path: json file containing configuration for data selection and CV setting. The parameters include:
+
+1. "dataset": string representing the name of the dataset.
+2.  "data_size": option to use all the data ("all") or a sub-sample of the dataset ("subset").
+
+3. "sample_size": integer number to choose number of subjects to use for a sub-sampled dataset. Necessary if "data_size" is set as "subset".
+
+4. "Nslices": number of slices to select.
+
+5. "slicing_plane": string to choose slicing plane ("axial", "sagittal" or "coronal").
+
+6. "enable_hist_plot": boolean variable for plotting the histogram of the selected number of slices.
+
+7. "data_resize": boolean variable for resizing 2D images or not.
+
+8. "label": string column header of the label's file.
+
+9. "cv_method": string to choose between cross validation ("cv") or nested cross validation ("grid_search").
+
+10. "Nfolds": number of cross validation folds. Required if "cv_method" is set as "cv".
+
+11. "Ninner": integer representing number of inner folds. Required if "cv_method" is set as "grid_search".
+
+12. "Nouter": integer representing number of outer folds. Required if "cv_method" is set as "grid_search".
+
+13. "cv_split": string to choose data split method ("slice-level" and "subject-level")
+
+
+
+
+
+**References**
+
+
+
+[1] Deep learning inuc0u8239 brain MRI:u8239 effect of data leakage in cross-validation using 2D convolutional neural networksu8239
+
+
+
+[2] B. B. Avants et al., 2011. A reproducible evaluation of ANTs similarity metric performance in brain image registration.  _Neuroimage_, Volume 54(3), pp. 2033-2044.
+
+
+
+[3] M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. _NeuroImage_, 62:782-90, 2012
