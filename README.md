@@ -9,7 +9,7 @@ Since we did not provide MR data to run the code, the user is expected to get T1
 
 - Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from OASIS dataset)
 
-- Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from ADNI dataset)
+- Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/)    (https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/ADNI_README.md)
 
 - Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from PPMI dataset)
 
