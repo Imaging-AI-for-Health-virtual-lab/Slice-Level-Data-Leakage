@@ -7,7 +7,7 @@ Briefly, we illustrated the effect of data leakage caused by inappropriate train
 ## Datasets
 Since we did not provide MR data to run the code, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).
 
-- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (LINK to a file in the github repository, which contains the information for downloading T1w MR images from OASIS dataset)
+- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (We considered the same subjects used in the paper [4])
 
 - Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/)    (https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/ADNI_README.md)
 
@@ -183,3 +183,6 @@ python3 model_training.py ADNI_example_skullstripped.nii.gz ADNI_example_labels.
 
 
 [3] M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. _NeuroImage_, 62:782-90, 2012
+
+
+[4] M. Hon and N.M. Khan, 2017, November. Towards Alzheimer's disease classification through transfer learning. In 2017 IEEE International conference on bioinformatics and biomedicine (BIBM) (pp. 1166-1169). 
