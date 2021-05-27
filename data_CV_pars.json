@@ -1,0 +1,17 @@
+{
+    "dataset": "ADNI",
+    "data_size": "all",
+    "sample_size": 34,
+    "enable_hist_plot": false,
+    "slicing_plane": "axial",
+    "Nslices": 8,
+    "cv_method": "grid_search",
+    "cv_split": "incorrect",
+    "data_resize": true,
+    "Nfolds": 5,
+    "Ninner": 5,
+    "Nouter": 5,
+    "task": "classification",
+    "label": "AD"
+
+}

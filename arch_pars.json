@@ -1,0 +1,6 @@
+{
+    "pretrained_model": "vgg1",
+    "optimizer": "adam",
+    "epochs":50,
+    "batch_size": 128
+}
