@@ -122,7 +122,7 @@ optional arguments:
 
 Example:
 
-python3 model_training.py ADNI_example_skullstripped.nii.gz ADNI_example_labels.csv arch_pars.json data_CV_pars.json --save_path path_to_save_results
+python3 model_training.py ./data/ADNI_example_skullstripped.nii.gz ./data/ADNI_example_labels.csv ./config/arch_pars.json ./config/data_CV_pars.json --save_path path_to_save_results
 ```
 
 
