@@ -88,7 +88,7 @@ def plot_histogram(array_data, save_path, Nslices, dataset_name):
 
 
 
-def choose_slice_indices(nifti_data, Naxis, Nslices, Nslices):
+def choose_slice_indices(nifti_data, Naxis, Nslices):
     """ chooses Nslices from each 3D MRI volume that maximize the image entropy value
 
     # Arguments
@@ -487,7 +487,7 @@ if __name__ == '__main__':
     parser.add_argument('labels_path', type=str, help='path to the labels file')
     parser.add_argument('arch_config_path', type=str, help='model config file path')
     parser.add_argument('data_CV_config_path', type=str, help='data config file path')
-    parser.add_argument('--save_path'), type=str, default='', help='location to save the results')
+    parser.add_argument('--save_path', type=str, default='', help='location to save the results')
 
 
 
