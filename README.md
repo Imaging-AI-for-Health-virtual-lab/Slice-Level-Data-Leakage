@@ -11,7 +11,7 @@ Since we did not provide MR data to run the code, the user is expected to get T1
 
 - Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/). Information on how to download the data can be found from [ADNI_README.md](https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/docs/ADNI_README.md).
 
-- Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/). Steps to download the data are listed [PPMI_README.md]  (https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/PPMI_README.md).
+- Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/). Steps to download the data are listed [PPMI_README.md](https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/PPMI_README.md).
 
 
 
