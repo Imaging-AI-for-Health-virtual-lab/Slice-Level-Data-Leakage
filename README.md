@@ -72,34 +72,16 @@ In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the i
 Clone the Slice-Level-Data-Leakage
 
 ```
-git clone 
+git clone https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage.git
+
 ```
-Python libraries required to run the code _model_training.py_:
-
-- Classification_models 0.2.2
-
-- Cv2 3.3.0
-
-- Keras 2.2.4
-
-- Matplotlib 3.0.2
-
-- Nibabel 2.3.3
-
-- Numpy 1.16.4
-
-- Pandas 0.24.2
-
-- Python 3.6.8
-
-- Skimage 0.15.0
-
--  Sklearn 0.21.2
-
-- TensorflowGPU 1.13.1
+# Install Packages with Anaconda
+Next, download and install [Anaconda](https://www.anaconda.com/products/individual). Create a new conda environment that includes all the dependencies for this project from a requirements_list.txt file.
 
 
-
+```
+conda env create
+```
 
 
 ## Usage
