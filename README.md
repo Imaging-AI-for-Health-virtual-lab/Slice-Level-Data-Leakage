@@ -68,7 +68,7 @@ In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the i
 
 
 ## Installation
-# Clone Repository with Git
+### Clone Repository with Git
 Clone the Slice-Level-Data-Leakage
 
 ```
