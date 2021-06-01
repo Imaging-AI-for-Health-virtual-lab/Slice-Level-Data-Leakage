@@ -67,7 +67,13 @@ In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the i
 
 
 
-## Python requirements for CNN model training and validation
+## Installation
+# Clone Repository with Git
+Clone the Slice-Level-Data-Leakage
+
+```
+git clone 
+```
 Python libraries required to run the code _model_training.py_:
 
 - Classification_models 0.2.2
