@@ -67,20 +67,28 @@ In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the i
 
 
 
-## Installation
-### Clone Repository with Git
+# Installation
+## Clone Repository with Git
 Clone the Slice-Level-Data-Leakage
 
 ```
 git clone https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage.git
 
 ```
-# Install Packages with Anaconda
+## Install Packages with Anaconda
 Next, download and install [Anaconda](https://www.anaconda.com/products/individual). Create a new conda environment that includes all the dependencies for this project from a requirements_list.txt file.
 
 
 ```
-conda env create
+conda create --name <new_env_name> --file requirements_list.txt
+
+```
+
+Finally, activate the conda environment.
+
+```
+conda activate <new_env_name> 
+
 ```
 
 
