@@ -84,10 +84,17 @@ conda create --name <new_env_name> --file requirements_list.txt
 
 ```
 
-Finally, activate the conda environment.
+Activate the conda environment.
 
 ```
 conda activate <new_env_name> 
+
+```
+
+Finally, install the remaining packages with pip.
+
+```
+pip install keras-vis image-classifiers tf-explain
 
 ```
 
