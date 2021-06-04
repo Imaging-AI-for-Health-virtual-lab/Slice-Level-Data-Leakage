@@ -74,6 +74,8 @@ Clone the Slice-Level-Data-Leakage
 ```
 git clone https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage.git
 
+cd Slice-Level-Data-Leakage
+
 ```
 ## Install Packages with Anaconda
 Next, download and install [Anaconda](https://www.anaconda.com/products/individual). Create a new conda environment that includes all the dependencies for this project from a requirements_list.txt file.
