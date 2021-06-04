@@ -96,7 +96,7 @@ conda activate <new_env_name>
 Finally, install the remaining packages with pip.
 
 ```
-pip install keras-vis image-classifiers tf-explain
+pip install keras-vis==0.5.0 image-classifiers==0.1 tf-explain==0.3.0
 
 ```
 
