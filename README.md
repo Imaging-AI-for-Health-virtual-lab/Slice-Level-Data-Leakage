@@ -179,7 +179,7 @@ python3 model_training.py ./data/ADNI_example_skullstripped.nii.gz ./data/ADNI_e
 
 
 
-[1] Deep learning inuc0u8239 brain MRI:u8239 effect of data leakage in cross-validation using 2D convolutional neural networksu8239
+[1] Yagis, E., Atnafu, S.W., de Herrera, A.G.S., Marzi, C., Giannelli, M., Tessa, C., Citi, L. and Diciotti, S., 2021. Deep Learning in Brain MRI: Effect of Data Leakage Due to Slice-level Split Using 2D Convolutional Neural Networks.
 
 
 
