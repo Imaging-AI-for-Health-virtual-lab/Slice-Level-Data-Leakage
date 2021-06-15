@@ -15,32 +15,30 @@ sess = tf.Session(graph=tf.get_default_graph(), config=session_conf) #
 K.set_session(sess)
 
 from keras.applications.vgg16 import VGG16
-from keras.applications.mobilenetv2 import MobileNetV2
 from keras import applications
-import os, sys, math, argparse, json, time, datetime
 from keras.models import Model, Sequential, load_model
 from keras.layers import Dense, GlobalAveragePooling2D, Flatten, Dropout, Concatenate, Input
-from keras.optimizers import Adam, SGD, RMSprop
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, roc_auc_score, make_scorer
-from sklearn.model_selection import KFold, cross_validate, GridSearchCV, train_test_split, StratifiedKFold, cross_val_score
 from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping, ModelCheckpoint, CSVLogger, Callback, LearningRateScheduler
 from keras.regularizers import l2
 from keras.wrappers.scikit_learn import KerasClassifier, KerasRegressor
-from skimage.measure import shannon_entropy
+from keras.optimizers import Adam, SGD, RMSprop
+
+from sklearn.metrics import confusion_matrix, roc_auc_score, make_scorer
+from sklearn.model_selection import KFold, cross_validate, GridSearchCV, train_test_split, StratifiedKFold, cross_val_score
 from sklearn.metrics.cluster import entropy
-import nibabel as nib
-from collections import Counter
-from skimage.measure import label, regionprops
-from keras.models import load_model
-import cv2
-import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, LabelBinarizer
 from sklearn.utils import class_weight
-import random
-import classification_models
 from sklearn.utils import parallel_backend
+
+import matplotlib.pyplot as plt
+import os, sys, math, argparse, json, time, datetime
+import nibabel as nib
+from collections import Counter
+import cv2
+import pandas as pd
+
+import classification_models
 ###################################################################################################################
 
 FLAGS=None
@@ -504,43 +502,4 @@ if __name__ == '__main__':
         arch_pars=json.load(f)
 
     with open(data_CV_config_path, 'rb') as f:
-        data_cv_pars=json.load(f)
-
-
-
-    if save_path == '':
-        path = os.path.realpath(sys.argv[0])
-        if os.path.isdir(path):
-            p=path
-        else:
-            p=os.path.dirname(path)
-
-    else:
-        p=save_path
-
-    save_path=os.path.join(p, 'results')    
-    if not os.path.isdir(save_path):
-        os.mkdir(save_path)
-
-
-    dataset_path=os.path.join(save_path, data_cv_pars['dataset'])
-    print(dataset_path)
-
-    if not os.path.isdir(dataset_path):
-        os.mkdir(dataset_path)
-
-
-    if not os.path.isdir(dataset_path):
-        os.mkdir(dataset_path)
-
-
-    now = datetime.datetime.now()
-    current_datetime = [now.year, now.month, now.day, now.hour, now.minute]
-    current_datetime = '_'.join(list(map(str, current_datetime)))
-
-    result_path=os.path.join(dataset_path, str(data_cv_pars['Nslices'])+'slices'+current_datetime)
-
-    if not os.path.isdir(result_path):
-        os.mkdir(result_path)
-
-    main([sys.argv[0]] + sys.argv[1:])
+        data_cv_pars
