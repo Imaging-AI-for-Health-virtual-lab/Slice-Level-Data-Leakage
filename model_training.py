@@ -502,4 +502,39 @@ if __name__ == '__main__':
         arch_pars=json.load(f)
 
     with open(data_CV_config_path, 'rb') as f:
-        data_cv_pars
+        data_cv_pars=json.load(f)
+
+
+    if save_path == '':
+        path = os.path.realpath(sys.argv[0])
+        if os.path.isdir(path):
+            p=path
+        else:
+            p=os.path.dirname(path)
+
+    else:
+        p=save_path
+
+    save_path=os.path.join(p, 'results')    
+    if not os.path.isdir(save_path):
+        os.mkdir(save_path)
+
+
+    dataset_path=os.path.join(save_path, data_cv_pars['dataset'])
+    print(dataset_path)
+
+    if not os.path.isdir(dataset_path):
+        os.mkdir(dataset_path)
+
+
+
+    now = datetime.datetime.now()
+    current_datetime = [now.year, now.month, now.day, now.hour, now.minute]
+    current_datetime = '_'.join(list(map(str, current_datetime)))
+
+    result_path=os.path.join(dataset_path, str(data_cv_pars['Nslices'])+'slices'+current_datetime)
+
+    if not os.path.isdir(result_path):
+        os.mkdir(result_path)
+
+    main([sys.argv[0]] + sys.argv[1:])
