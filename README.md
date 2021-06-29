@@ -101,6 +101,20 @@ pip install keras-vis==0.5.0 image-classifiers==0.1 tf-explain==0.3.0
 ```
 
 
+
+##  Installation with Docker
+First, install [Docker](https://docs.docker.com/get-docker/) by choosing the specific operating system, distribution and architecture of our computer.
+
+Next, we need to load the docker image from a tar archive.
+
+```
+docker load < DATA_LEAKAGE.tar
+
+```
+
+
+
+
 ## Usage
 Run the script _model_training.py_:
 
