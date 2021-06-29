@@ -192,6 +192,22 @@ python3 model_training.py ./data/ADNI_example_skullstripped.nii.gz ./data/ADNI_e
 
 
 ```
+docker run -v "arguments_path:docker_image_path" --rm --name doc_container doc_image docker_image_path/nifty_file docker_image_path/labels_file docker_image_path/arch_config_file docker_image_path/data_config_file
+
+
+arguments_path         path to argument files
+docker_image_path      path to a location where the docker image is loaded
+doc_container          name of dcoker container
+doc_image              name of docker image
+nifty_file             nifty fille name
+labels_file            labels file name
+arch_config_file       model architecture configuration file
+data_config_file       data configuration file name
+
+
+
+Example
+
 docker run -v "Path_to_arguments:Path_to_docker_image" --rm --name Name_doc_container Name_docker_image Path_to_docker_image/ADNI_example_skullstripped.nii.gz Path_to_docker_image/ADNI_example_labels.csv Path_to_docker_image/arch_pars.json Path_to_docker_image/data_pars.json 
 
 ```
