@@ -188,6 +188,14 @@ python3 model_training.py ./data/ADNI_example_skullstripped.nii.gz ./data/ADNI_e
 
 
 
+## Usage with Docker
+
+
+```
+docker run -v "Path_to_arguments:Path_to_docker_image" --rm --name Name_doc_container Name_docker_image Path_to_docker_image/ADNI_example_skullstripped.nii.gz Path_to_docker_image/ADNI_example_labels.csv Path_to_docker_image/arch_pars.json Path_to_docker_image/data_pars.json 
+
+```
+
 
 **References**
 
