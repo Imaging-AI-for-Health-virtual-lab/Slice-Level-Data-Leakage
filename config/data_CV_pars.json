@@ -11,7 +11,6 @@
     "Nfolds": 5,
     "Ninner": 5,
     "Nouter": 5,
-    "task": "classification",
     "label": "AD"
 
 }
