@@ -103,10 +103,10 @@ pip install keras-vis==0.5.0 image-classifiers==0.1 tf-explain==0.3.0
 
 
 ##  Installation with Docker
-First, pull the docker image by visiting the docker hub repository located at [Docker](https://hub.docker.com/repository/docker/ai4healthvlab/data_leakage).
+First, pull the docker image by visiting the docker hub repository located at [Docker](https://hub.docker.com/repository/docker/ai4healthvlab/slice-level-data-leakage).
 
 ```
-docker pull ai4healthvlab/data_leakage
+docker pull ai4healthvlab/slice-level-data-leakage
 
 ```
 
