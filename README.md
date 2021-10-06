@@ -107,12 +107,19 @@ pip install keras-vis==0.5.0 image-classifiers==0.1 tf-explain==0.3.0
 ##  Installation with Docker
 First, pull the docker image by visiting the docker hub repository located at [Docker](https://hub.docker.com/repository/docker/ai4healthvlab/slice-level-data-leakage).
 
+#### Cpu version
 ```
-docker pull ai4healthvlab/slice-level-data-leakage
+docker pull ai4healthvlab/slice-level-data-leakage:cpu
 
 ```
 
+#### Gpu version
+To use the gpu version of the image, you have to install nvidia-docker. To install it, follow NVIDIA instructions. Before you get started, make sure you have installed CUDA and the NVIDIA drivers for your Linux distribution.
 
+```
+docker pull ai4healthvlab/slice-level-data-leakage:gpu
+
+```
 
 
 ## Usage
