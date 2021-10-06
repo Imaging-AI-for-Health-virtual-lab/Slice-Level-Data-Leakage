@@ -112,9 +112,8 @@ First, pull the docker image by visiting the docker hub repository located at [D
 docker pull ai4healthvlab/slice-level-data-leakage:cpu
 
 ```
-
 #### Gpu version
-To use the gpu version of the image, you have to install nvidia-docker. To install it, follow NVIDIA instructions. Before you get started, make sure you have installed CUDA and the NVIDIA drivers for your Linux distribution.
+To use the gpu version of the image, you have to install nvidia-docker. To install it, follow [NVIDIA instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker). Before you get started, make sure you have installed [CUDA and the NVIDIA drivers for your Linux distribution](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 ```
 docker pull ai4healthvlab/slice-level-data-leakage:gpu
