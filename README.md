@@ -7,7 +7,7 @@ Briefly, we illustrated the effect of data leakage caused by inappropriate train
 ## Datasets
 Since we cannot redistribute MR data, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).
 
-- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (We considered the same subjects used in the paper [4])
+- Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (We considered the same subjects used in [4])
 
 - Alzheimer Disease Neuroimaging Initiative (ADNI), accessible at (https://adni.loni.usc.edu/). Information on how to download the data can be found from [ADNI_README.md](https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/docs/ADNI_README.md).
 
