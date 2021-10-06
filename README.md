@@ -5,7 +5,7 @@ Briefly, we illustrated the effect of data leakage caused by inappropriate train
 
 
 ## Datasets
-Since we did not provide MR data to run the code, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).
+Since we cannot redistribute MR data, the user is expected to get T1-weighted MR images from the following open access datasets (in NIFTI format).
 
 - Open Access Series of Imaging Studies (OASIS), available at (https://www.oasis-brains.org/)    (We considered the same subjects used in the paper [4])
 
