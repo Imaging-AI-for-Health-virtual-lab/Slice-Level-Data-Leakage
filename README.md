@@ -1,4 +1,6 @@
- This repository contains the libraries and code required to reproduce the study in [1].
+# Deep Learning in Brain MRI: Effect of Data Leakage Due to Slice-level Split Using 2D Convolutional Neural Networks
+
+This repository contains the libraries and code required to reproduce the study in [1].
 
 Briefly, we illustrated the effect of data leakage caused by inappropriate train/validation split of 3D MR image data. Specifically, we trained three different 2D convolutional neural network (CNN) architectures using correct (subject-level) and incorrect (slice-level) data split on public and private datasets. The difference in the model's performance trained following both incorrect and incorrect data split is demonstrated to emphasize the extent of the over-estimation of the model's performance caused by data leakage.
 
