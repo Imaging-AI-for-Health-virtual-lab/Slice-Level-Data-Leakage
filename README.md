@@ -13,7 +13,7 @@ Since we cannot redistribute MR data, the user is expected to get T1-weighted MR
 
 - Parkinson's Progression Markers Initiative (PPMI), found from (https://www.ppmi-info.org/). Steps to download the data are listed [PPMI_README.md](https://github.com/Imaging-AI-for-Health-virtual-lab/Slice-Level-Data-Leakage/blob/main/PPMI_README.md).
 
-
+To let other researchers reproduce our results, we provided in the supplementary material the specific subject identification numbers (IDs) we have selected to create our datasets [1] (https://doi.org/10.21203/rs.3.rs-464091/v1).
 
 ## 3D MRI data pre-processing
 The T1-weighted images required a pre-processing, including a co-registration step with a standard space and a skull-stripping procedure.
