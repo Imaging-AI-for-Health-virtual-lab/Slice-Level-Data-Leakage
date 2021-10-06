@@ -202,9 +202,7 @@ docker run -v "arguments_path:docker_image_path" --rm ai4healthvlab/slice-level-
 
 
 arguments_path         path to argument files
-docker_image_path      path to a location where the docker image is loaded
-doc_container          name of dcoker container
-doc_image              name of docker image
+docker_image_path      path to argument files inside the container
 nifty_file             nifty fille name
 labels_file            labels file name
 arch_config_file       model architecture configuration file
