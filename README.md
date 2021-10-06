@@ -1,4 +1,4 @@
-# Deep Learning in Brain MRI: Effect of Data Leakage Due to Slice-level Split Using 2D Convolutional Neural Networks
+# Effect of data leakage in brain MRI classification using 2D convolutional neural networks
 
 This repository contains the libraries and code required to reproduce the study in [1].
 
