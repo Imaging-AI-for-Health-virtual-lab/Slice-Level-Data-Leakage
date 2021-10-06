@@ -63,7 +63,7 @@ fslmaths ADNI_example.nii.gz -mas $FSLDIR/data/standard/MNI152_T1_1mm_brain_mask
 
 
 
-In the following documentation, '93ADNI_example_skullstripped.nii.gz'94 is the input 4D NIfTI volume, containing all subjects concatenated one to each other. The csv label file should be written consistent with this 4D NIfTI volume (in this guide the csv file '93ADNI_example_labels.csv'94 has been written consistent with the 4D NIfTI volume '93ADNI_example_skullstripped.nii.gz'94).
+In the following documentation, 'ADNI_example_skullstripped.nii.gz' is the input 4D NIfTI volume, containing all subjects concatenated one to each other. The csv label file should be written consistent with this 4D NIfTI volume (in this guide the csv file 'ADNI_example_labels.csv' has been written consistent with the 4D NIfTI volume 'ADNI_example_skullstripped.nii.gz').
 
 
 
@@ -215,7 +215,7 @@ docker run -v "Path_to_arguments:Path_to_docker_image" --rm --name Name_doc_cont
 
 
 
-[1] Yagis, E., Atnafu, S.W., de Herrera, A.G.S., Marzi, C., Giannelli, M., Tessa, C., Citi, L. and Diciotti, S., 2021. Deep Learning in Brain MRI: Effect of Data Leakage Due to Slice-level Split Using 2D Convolutional Neural Networks.
+[1] Yagis, E., Atnafu, S.W., de Herrera, A.G.S., Marzi, C., Giannelli, M., Tessa, C., Citi, L. and Diciotti, S., 2021. Deep Learning in Brain MRI: Effect of Data Leakage Due to Slice-level Split Using 2D Convolutional Neural Networks. https://doi.org/10.21203/rs.3.rs-464091/v1.
 
 
 
