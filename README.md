@@ -249,3 +249,24 @@ nvidia-docker run --gpus all  -v "Path_to_arguments:Path_to_docker_image" --rm a
 
 
 [4] M. Hon and N.M. Khan, 2017, November. Towards Alzheimer's disease classification through transfer learning. In 2017 IEEE International conference on bioinformatics and biomedicine (BIBM) (pp. 1166-1169). 
+
+
+**Citation**
+
+The repository came out of research at the University of Bologna. If you use this repository in your research we would appreciate a citation to the paper
+[Effect of data leakage in brain MRI classification using 2D convolutional neural networks](https://www.nature.com/articles/s41598-021-01681-w#citeas)
+
+**Bibtex**
+
+@article{doi.org/10.1038/s41598-021-01681-w,
+author = {Yagis, E., Atnafu, S.W., García Seco de Herrera, A. et al.},
+title = { Effect of data leakage in brain MRI classification using 2D convolutional neural networks. },
+journal = {Scientific Reports},
+volume = {11},
+number = {22544},
+year = {2021},
+doi = {https://doi.org/10.1038/s41598-021-01681-w},
+
+URL = {https://www.nature.com/articles/s41598-021-01681-w},
+
+}
