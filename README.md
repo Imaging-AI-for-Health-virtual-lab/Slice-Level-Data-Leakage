@@ -254,10 +254,11 @@ nvidia-docker run --gpus all  -v "Path_to_arguments:Path_to_docker_image" --rm a
 **Citation**
 
 The repository came out of research at the University of Bologna. If you use this repository in your research we would appreciate a citation to the paper
-[Effect of data leakage in brain MRI classification using 2D convolutional neural networks](https://www.nature.com/articles/s41598-021-01681-w#citeas)
+[Effect of data leakage in brain MRI classification using 2D convolutional neural networks.](https://www.nature.com/articles/s41598-021-01681-w#citeas)
 
-**Bibtex**
+Bibtex:
 
+```
 @article{doi.org/10.1038/s41598-021-01681-w,
 author = {Yagis, E., Atnafu, S.W., García Seco de Herrera, A. et al.},
 title = { Effect of data leakage in brain MRI classification using 2D convolutional neural networks. },
@@ -266,7 +267,6 @@ volume = {11},
 number = {22544},
 year = {2021},
 doi = {https://doi.org/10.1038/s41598-021-01681-w},
-
 URL = {https://www.nature.com/articles/s41598-021-01681-w},
-
 }
+```
